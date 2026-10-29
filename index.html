@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ Raíces de Color — Partitura Mágica & Laboratorio ✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <img src="1000091642.gif" alt="Gatito Cute" class="header-cat-gif" onerror="this.style.display='none'">
+        <h1>✨ Raíces de Color ✨</h1>
+        <img src="1000091642.gif" alt="Gatito Cute" class="header-cat-gif" onerror="this.style.display='none'">
+    </div>
+    <p>🌸 Arte sustentable, consumo responsable (ODS 12) y partituras angelicales 🌿♻️✨</p>
+
+    <nav>
+        <button onclick="openPage('mandalas')">🌀 Mandalas</button>
+        <button onclick="openPage('taller')">🎨 Taller Mágico</button>
+        <button onclick="openPage('laboratorio')">🧪 Laboratorio</button>
+        <button onclick="openPage('reutiliza')">♻️ Reutilizar</button>
+        <button onclick="openPage('inspiracion')">🌟 Inspiración</button>
+        <button onclick="openPage('referencias')">📚 Referencias</button>
+    </nav>
+</header>
+
+<main>
+
+<!-- SECCIÓN MANDALAS -->
+<section id="mandalas" class="page active">
+    <h2>Mandalas para Colorear (๑•ᴗ•๑)♡</h2>
+    <p class="subtitle-desc">Selecciona un patrón geométrico o invoca un algoritmo aleatorio ✨🌱</p>
+    
+    <div style="text-align: center; margin-bottom: 25px;">
+        <button class="actionBtn" onclick="addRandomMandala()">✨ ¡Generar Mandala Procedural Aleatoria! 🌀 ( 737 )</button>
+    </div>
+
+    <div id="mandalasGrid" class="grid"></div>
+</section>
+
+<!-- SECCIÓN TALLER -->
+<section id="taller" class="page">
+    <h2>Tu Espacio Mágico y Sonoro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</h2>
+    <div class="workspace">
+        <div class="panel">
+            <div class="canvas-wrapper">
+                <canvas id="canvas" width="900" height="650"></canvas>
+                <div id="scanner-line"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="brush" class="tool active" onclick="setTool('brush')">🖌️ Pincel</button>
+                <button id="eraser" class="tool" onclick="setTool('eraser')">🧽 Borrador</button>
+                <button class="tool" onclick="clearCanvas()">🗑️ Limpiar</button>
+                <button class="tool" onclick="saveCanvas()">💾 Guardar ✨</button>
+                <button class="tool" style="background:#ffb7c5; color:white;" onclick="startScanMelody()">☁️ Reproducir Melodía</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <label>
+                    Grosor:
+                    <input id="brushSize" type="range" min="2" max="60" value="12">
+                </label>
+                <label>
+                    Opacidad:
+                    <input id="brushOpacity" type="range" min="0.1" max="1" step="0.1" value="1">
+                </label>
+            </div>
+
+            <h3>🌱 Paleta Sustentable</h3>
+            <div id="palette" class="colors"></div>
+        </div>
+
+        <div class="panel">
+            <div id="info">
+                <h3>Selecciona un color ( 737 )</h3>
+                <p>Haz clic en un color de la paleta para ver su receta ecofriendly aquí arriba ✨</p>
+            </div>
+
+            <div class="impact-badge">
+                <h4>🌱 Medidor de Impacto ODS 12:</h4>
+                <p>¡Al crear este dibujo en digital estás ahorrando aproximadamente:</p>
+                <ul>
+                    <li>💧 <b>2.5 Litros</b> de agua limpia.</li>
+                    <li>🛍️ <b>120g</b> de envases plásticos.</li>
+                    <li>☁️ <b>0 toxicidad</b> por solventes pesados.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN LABORATORIO INTERACTIVO (CON REACCIONES DE pH EXACTAS) -->
+<section id="laboratorio" class="page">
+    <h2>Laboratorio Interactivo de Alquimia 🧪 (੭˃ᴗ˂)੭</h2>
+    <p class="subtitle-desc">¡Arrastra 1 vegetal y 1 modificador dentro del caldero para ver la reacción de pH exacta! ✨🥣</p>
+    
+    <div class="lab-workspace">
+        <div class="panel ingredients-shelf">
+            <h3>🫙 Insumos Naturales:</h3>
+            <div class="draggable-item" draggable="true" data-name="Cúrcuma" data-type="botanico" data-color="#f6d55c">🌾 Cúrcuma</div>
+            <div class="draggable-item" draggable="true" data-name="Jamaica" data-type="botanico" data-color="#ff8b94">🌺 Flores de Jamaica</div>
+            <div class="draggable-item" draggable="true" data-name="Espinaca" data-type="botanico" data-color="#88b04b">🍃 Espinaca fresca</div>
+            <div class="draggable-item" draggable="true" data-name="Col Morada" data-type="botanico" data-color="#a288e3">🥬 Col Morada</div>
+            <div class="draggable-item" draggable="true" data-name="Carbón Vegetal" data-type="botanico" data-color="#555555">☁️ Carbón Vegetal</div>
+
+            <h3 style="margin-top: 15px;">🧪 Modificadores de pH:</h3>
+            <div class="draggable-item" draggable="true" data-name="Limón" data-type="acido" data-color="#fff176">🍋 Gotas de Limón (Ácido)</div>
+            <div class="draggable-item" draggable="true" data-name="Vinagre Blanco" data-type="acido" data-color="#f5f5f5">🧴 Vinagre Blanco (Ácido)</div>
+            <div class="draggable-item" draggable="true" data-name="Bicarbonato" data-type="alcalino" data-color="#e0e0e0">🥄 Bicarbonato (Alcalino)</div>
+            <div class="draggable-item" draggable="true" data-name="Agua Pura" data-type="neutro" data-color="#e0f7fa">💧 Agua Pura (Neutro)</div>
+        </div>
+
+        <div class="mixing-zone" id="mixingZone">
+            <div class="dropped-items" id="droppedItems"></div>
+            
+            <div class="cauldron-container" id="cauldronContainer">
+                <div class="bubbles" id="bubbles"></div>
+                <svg class="cauldron-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30 70 C 10 70 10 110 30 110" stroke="#f3b0c3" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    <path d="M 170 70 C 190 70 190 110 170 110" stroke="#f3b0c3" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    <path d="M 40 50 C 20 100 20 160 100 160 C 180 160 180 100 160 50 Z" fill="#6c5b7b" stroke="#4a3e56" stroke-width="5"/>
+                    <path d="M 50 80 A 50 50 0 0 0 70 130" stroke="rgba(255,255,255,0.2)" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="100" cy="50" rx="65" ry="14" fill="#584865" stroke="#4a3e56" stroke-width="4"/>
+                    <ellipse id="cauldronLiquid" class="cauldron-liquid" cx="100" cy="52" rx="55" ry="10" fill="#ffe5ec"/>
+                </svg>
+            </div>
+
+            <div id="labMessage">
+                <h3>¡Arrastra aquí tus ingredientes! ✨</h3>
+                <p>(๑˃̵ᴗ˂̵)b Suelta 2 insumos dentro del caldero alquímico...</p>
+            </div>
+
+            <button class="actionBtn" style="margin-top: 15px;" onclick="resetLab()">🧹 Vaciar Caldero ( 737 )</button>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN REUTILIZAR -->
+<section id="reutiliza" class="page">
+    <h2>Producción Responsable en el Arte (∩^o^)⊃━☆ ♻️</h2>
+    <div class="grid">
+        <div class="material"><h3>📦 Cartón Bonito</h3><p>Reutilízalo como lienzo, plantilla o paleta de pintura (｡•̀ᴗ-)✧</p></div>
+        <div class="material"><h3>📰 Papel Reciclado</h3><p>Usa el reverso de hojas impresas para bocetos y pruebas ✏️</p></div>
+        <div class="material"><h3>🫙 Frasquitos de Vidrio</h3><p>Guarda tu agua de enjuague y mezclas ecofriendly (⁠✿⁠☉⁠｡⁠☉⁠)</p></div>
+        <div class="material"><h3>🧵 Retazos de Tela</h3><p>Sirven genial para secar pinceles y crear texturas ♡</p></div>
+        <div class="material"><h3>🍂 Hojas Caídas</h3><p>Úsalas para sellos naturales sin lastimar a las plantitas 🌱</p></div>
+        <div class="material"><h3>🥚 Cáscaras de Huevo</h3><p>Conviértelas en textura de mosaico para tus obras (˶ᵔ ᵕ ᵔ˶)</p></div>
+    </div>
+</section>
+
+<!-- SECCIÓN INSPIRACIÓN GLOBAL -->
+<section id="inspiracion" class="page">
+    <h2>Proyectos Inspiradores en el Mundo (★ω★) ✨</h2>
+    <p class="subtitle-desc">Descubre cómo otras personas usan el arte para cuidar el medio ambiente (ODS 12) 🌍🌿</p>
+    
+    <div style="text-align: center;">
+        <img src="1000099973.gif" alt="Mariposa Mágica" class="butterfly-gif-card" onerror="this.style.display='none'">
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>🎨 Ecocosas: Arte con Chatarra</h3>
+            <div class="swatch" style="background: #e2f0cb; display: flex; align-items: center; justify-content: center; font-size: 28px;">⚙️🤖</div>
+            <p><b>Creadores:</b> Colectivos de Reciclaje</p>
+            <p class="recipe">Transforman piezas metálicas en desuso y tuercas en esculturas de animales. ♻️✨</p>
+        </div>
+        <div class="card">
+            <h3>🌊 The Washed Ashore Project</h3>
+            <div class="swatch" style="background: #b5ead7; display: flex; align-items: center; justify-content: center; font-size: 28px;">🐋🏖️</div>
+            <p><b>Creadora:</b> Angela Haseltine Pozzi</p>
+            <p class="recipe">Esculturas de fauna marina hechas con plástico recolectado de playas. 🌊💖</p>
+        </div>
+        <div class="card">
+            <h3>🎻 Orquesta de Instrumentos Reciclados</h3>
+            <div class="swatch" style="background: #ffc6ff; display: flex; align-items: center; justify-content: center; font-size: 28px;">🎻♻️</div>
+            <p><b>Origen:</b> Cateura, Paraguay</p>
+            <p class="recipe">Violines y flautas construidos con tubos de PVC y latas del vertedero. 🎵✨</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN REFERENCIAS Y LIGAS WEB -->
+<section id="referencias" class="page">
+    <h2>📚 Referencias Bibliográficas y Ligas Web (★ω★)</h2>
+    <p class="subtitle-desc">Fuentes de inspiración, documentación técnica y algoritmos avanzados utilizados en el proyecto ✨</p>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>🌿 Agenda 2030 - ODS 12</h3>
+            <p>Organización de las Naciones Unidas (ONU).</p>
+            <p class="recipe"><a href="https://sdgs.un.org/goals/goal12" target="_blank" style="color:#ff6b8b; font-weight:bold;">🔗 Consultar Objetivo 12 (Producción y Consumo Responsable)</a></p>
+        </div>
+        <div class="card">
+            <h3>🎨 Algoritmos y Arte Generativo</h3>
+            <p>The Nature of Code — Daniel Shiffman.</p>
+            <p class="recipe"><a href="https://natureofcode.com/" target="_blank" style="color:#ff6b8b; font-weight:bold;">🔗 Explorar Nature of Code</a></p>
+        </div>
+        <div class="card">
+            <h3>🎵 Web Audio API & Sonificación</h3>
+            <p>Documentación oficial para la generación de frecuencias musicales en navegadores.</p>
+            <p class="recipe"><a href="https://developer.mozilla.org/es/docs/Web/API/Web_Audio_API" target="_blank" style="color:#ff6b8b; font-weight:bold;">🔗 MDN Web Audio API Guide</a></p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
